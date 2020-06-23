@@ -24,4 +24,10 @@ public class ConsumerServiceImpl implements ConsumerService {
         this.servletContext.setAttribute(source.toString(), commonMessageDTO);
     }
 
+    @Override
+    public CommonMessageDTO retrieveSavedMessage(Source source) {
+        logger.info("Retrieving data for source: "+ source.toString());
+        return (CommonMessageDTO) this.servletContext.getAttribute(source.toString());
+    }
+
 }
