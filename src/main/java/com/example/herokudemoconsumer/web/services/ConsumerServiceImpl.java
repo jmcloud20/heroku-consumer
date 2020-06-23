@@ -2,11 +2,13 @@ package com.example.herokudemoconsumer.web.services;
 
 import com.example.herokudemoconsumer.web.model.CommonMessageDTO;
 import com.example.herokudemoconsumer.web.model.Source;
+import org.springframework.stereotype.Service;
 
 import javax.servlet.ServletContext;
 import java.util.Calendar;
 import java.util.logging.Logger;
 
+@Service
 public class ConsumerServiceImpl implements ConsumerService {
 
     private Logger logger = Logger.getLogger(this.getClass().getName());
