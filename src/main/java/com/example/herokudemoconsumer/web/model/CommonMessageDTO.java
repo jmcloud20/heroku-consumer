@@ -5,8 +5,6 @@ import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-import java.util.Date;
-
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
@@ -15,5 +13,5 @@ public class CommonMessageDTO {
     private String topic;
     private String desc;
     private MessageDTO message;
-    private Date dateReceived;
+    private String dateReceived;
 }

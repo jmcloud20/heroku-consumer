@@ -5,10 +5,9 @@ import com.example.herokudemoconsumer.web.model.Source;
 import org.springframework.stereotype.Service;
 
 import javax.servlet.ServletContext;
-import java.util.Calendar;
-import java.util.LinkedList;
-import java.util.List;
-import java.util.Stack;
+import java.text.SimpleDateFormat;
+import java.time.Instant;
+import java.util.*;
 import java.util.logging.Logger;
 
 @Service
@@ -28,13 +27,27 @@ public class ConsumerServiceImpl implements ConsumerService {
      */
     @Override
     public void save(Source source, CommonMessageDTO commonMessageDTO) {
+
+        String formattedDate = formatHKTDate();
+
         logger.info("Add received date.");
-        commonMessageDTO.setDateReceived(Calendar.getInstance().getTime());
+        commonMessageDTO.setDateReceived(formattedDate);
 
         List<CommonMessageDTO> messages = validateMessage(source, commonMessageDTO);
 
         logger.info("Save message.");
         this.servletContext.setAttribute(source.toString(), messages);
+    }
+
+    private String formatHKTDate() {
+        logger.info("Set format for date.");
+        SimpleDateFormat sdf = new SimpleDateFormat("EEE MMM dd HH:mm:ss zzz YYYY");
+
+        logger.info("Set timezone to Asia/Hong Kong");
+        sdf.setTimeZone(TimeZone.getTimeZone("Asia/Hong_Kong"));
+
+        logger.info("Generate formatted date.");
+        return sdf.format(Calendar.getInstance().getTime());
     }
 
     /**
