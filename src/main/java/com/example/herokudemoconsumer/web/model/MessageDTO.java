@@ -10,6 +10,7 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @Builder
 public class MessageDTO {
+    private String source;
     private String userId;
     private String oldEmail;
     private String newEmail;
