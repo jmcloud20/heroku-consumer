@@ -17,6 +17,7 @@
         <thead>
             <tr>
                 <th>Topic</th>
+                <th>Source</th>
                 <th>Date Received</th>
                 <th>User ID</th>
                 <th>Old Email</th>
@@ -26,6 +27,7 @@
         <tbody>
             <tr th:each="email : ${UPDATE_EMAIL}">
                 <td th:text="${email.topic}"></td>
+                <td th:text="${email.message.source}"></td>
                 <td th:text="${email.dateReceived}"></td>
                 <td th:text="${email.message.userId}"></td>
                 <td th:text="${email.message.oldEmail}"></td>
@@ -41,6 +43,7 @@
         <thead>
             <tr>
                 <th>Topic</th>
+                <th>Source</th>
                 <th>Date Received</th>
                 <th>User ID</th>
                 <th>Mobile</th>
@@ -53,6 +56,7 @@
         <tbody>
             <tr th:each="opt : ${OPT_IN}">
                 <td th:text="${opt.topic}"></td>
+                <td th:text="${opt.message.source}"></td>
                 <td th:text="${opt.dateReceived}"></td>
                 <td th:text="${opt.message.userId}"></td>
                 <td th:text="${opt.message.mobile}"></td>
@@ -72,6 +76,7 @@
         <thead>
             <tr>
                 <th>Topic</th>
+                <th>Source</th>
                 <th>Date Received</th>
                 <th>Offer ID</th>
                 <th>Brand</th>
@@ -81,6 +86,7 @@
         <tbody>
             <tr th:each="offer : ${PROD_OFFER}">
                 <td th:text="${offer.topic}"></td>
+                <td th:text="${offer.message.source}"></td>
                 <td th:text="${offer.dateReceived}"></td>
                 <td th:text="${offer.message.offerId}"></td>
                 <td th:text="${offer.message.brand}"></td>
