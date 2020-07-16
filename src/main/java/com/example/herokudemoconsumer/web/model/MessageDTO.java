@@ -21,4 +21,5 @@ public class MessageDTO {
     private boolean optOut;
     private String offerId;
     private String type;
+    private long publishTime;
 }
